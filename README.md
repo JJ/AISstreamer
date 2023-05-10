@@ -4,7 +4,7 @@ Client for AISstream socket API. It uses [AISstream free (and experimental) API]
 
 ## Installation
 
-It should be as easy as `npm install AISstreamer`.
+It should be as easy as `npm install aisstreamer`.
 
 ## Use
 
