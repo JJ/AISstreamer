@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Easy-to-use client for the AISstream socket API",
   "main": "index.js",
-  "scripts": {
+    "scripts": {
+        "doc": "jsdoc  --readme ./README.md lib/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
