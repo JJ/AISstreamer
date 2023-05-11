@@ -62,6 +62,10 @@ Every message will have a form similar to this one
 
 That is, there are three keys: `Message`, `MessageType`, `Metadata`. The value of `MessageType` will be also the single key in `Message`. The content of this message will vary with the type of data; however, the `Metadata` part will remain invariable, and it contains the name of the ship as well as the [MMSI](https://en.wikipedia.org/wiki/Maritime_Mobile_Service_Identity)
 
+## Versions
+
+* `0.0.1` Initial version
+
 ## LICENSE
 
 (c) JJ Merelo, 2023
