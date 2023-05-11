@@ -29,4 +29,8 @@ jobs:
       - name: Generate docs
         run: npm run doc
       - name: Commit and push
-        run: git commit -am ":memo:" && git push
+        run: |
+          git config --global user.email "jjmerelo@gmail.com"
+          git config --global user.name "AISstreamer Doc Bot"
+          git commit -am ":memo:"
+          git push
