@@ -1,0 +1,31 @@
+name: Generate docs
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - lib/*.js
+      - README.md
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install
+        run: npm ci
+      - name: Generate docs
+        run: npm run doc
+      - name: git commit -am ":memo:" && git push
