@@ -8,6 +8,10 @@ version).
 
 It should be as easy as `npm install aisstreamer`.
 
+## Documentation
+
+Documentation is hosted at [GitHub pages](https://jj.github.io/AISstreamer); regenerate it locally after changes with `npm run doc`. If you fork this repository and give the fork the necessary permissions, the included workflow will do that for you.
+
 ## Use
 
 There's a single function, `AIStrack`:
@@ -74,7 +78,7 @@ remain invariable, and it contains the name of the ship as well as the
 
 ## Versions
 
-* `0.0.1` Initial version
+* `0.0.1` Initial version.
 
 ## LICENSE
 
