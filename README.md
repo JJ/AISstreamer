@@ -27,7 +27,7 @@ AIStrack(API_KEY, SHIP_NAME);
 This will use the default callback, which simply prints the message in JSON
 format, every time it finds the ship. Please read the documentation if you want
 to change the tracked zone, as well as have a different callback called when the
-ship is found
+ship is found.
 
 ## AISstream messages
 
