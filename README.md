@@ -1,6 +1,6 @@
 # AISstreamer
 
-Client for AISstream socket API. It uses [AISstream free (and experimental) API](https://aisstream.io/) to track specific, single, ships.
+Client for AISstream socket API. It uses [AISstream free (and experimental) API](https://aisstream.io/) to track specific, single, ships (in the first version).
 
 ## Installation
 

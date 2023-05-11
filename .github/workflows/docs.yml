@@ -28,4 +28,5 @@ jobs:
         run: npm ci
       - name: Generate docs
         run: npm run doc
-      - name: git commit -am ":memo:" && git push
+      - name: Commit and push
+        run: git commit -am ":memo:" && git push
