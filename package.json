@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Easy-to-use client for the AISstream socket API",
   "main": "index.js",
-    "scripts": {
-        "doc": "jsdoc  --readme ./README.md lib/index.js",
+  "scripts": {
+    "doc": "jsdoc -d docs --readme ./README.md lib/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,5 +14,8 @@
   ],
   "author": "JJ Merelo",
   "license": "GPL-3.0",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
+  }
 }
