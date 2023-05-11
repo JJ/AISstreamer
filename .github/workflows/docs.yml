@@ -34,5 +34,5 @@ jobs:
         run: |
           git config --global user.email "jjmerelo@gmail.com"
           git config --global user.name "AISstreamer Doc Bot"
-          git commit -am ":memo:"
+          git commit -am ":robot: :memo:"
           git push
