@@ -64,7 +64,6 @@ That is, there are three keys: `Message`, `MessageType`, `Metadata`. The value o
 
 ## LICENSE
 
-
 (c) JJ Merelo, 2023
 
 This is released under the GPL-3.0 license. See [LICENSE](LICENSE) for more information.
