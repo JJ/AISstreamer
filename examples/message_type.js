@@ -4,6 +4,8 @@ function printMessageType( message ) {
     console.log( message["MessageType"] );
 }
 
-AIStrack( process.env.AISSTREAM_API_KEY, "COSCO PHILIPPINES", defaultBoundingBox, printMessageType );
+const API_KEY = process.env.AISSTREAM_API_KEY;
+console.log(API_KEY);
+AIStrack( API_KEY, "COSCO PHILIPPINES", defaultBoundingBox, printMessageType );
 
 
