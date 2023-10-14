@@ -17,9 +17,9 @@ Documentation is hosted at [GitHub pages](https://jj.github.io/AISstreamer); reg
 There's a single function, `AIStrack`:
 
 ```JS
-import { AIStrack } from "../lib/index.js";
+import { AIStrack } from "aisstreamer";
 
-// API_KEY needs to be defined as an environment variable
+// API_KEY can be defined as an environment variable
 const API_KEY = process.env.AISSTREAM_API_KEY;
 
 // The exact ship name needs to be used; this might include the company name
@@ -31,11 +31,11 @@ AIStrack(API_KEY, SHIP_NAME);
 This will use the default callback, which simply prints the message in JSON
 format, every time it finds the ship. Please read the documentation if you want
 to change the tracked zone, as well as have a different callback called when the
-ship is found.
+ship is found. Please check out the [reference](https://jj.github.io/AISstreamer/global.html#AIStrack) for a more extensive explanation.
 
 ## AISstream messages
 
-Every message will have a form similar to this one
+Every message received from AISstream will have a form similar to this one
 
 ```JSON
  {
@@ -74,7 +74,7 @@ That is, there are three keys: `Message`, `MessageType`, `Metadata`. The value
 of `MessageType` will be also the single key in `Message`. The content of this
 message will vary with the type of data; however, the `Metadata` part will
 remain invariable, and it contains the name of the ship as well as the
-[MMSI](https://en.wikipedia.org/wiki/Maritime_Mobile_Service_Identity)
+[MMSI](https://en.wikipedia.org/wiki/Maritime_Mobile_Service_Identity) for the ship we're tracking
 
 ## Versions
 
