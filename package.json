@@ -17,5 +17,8 @@
   "type": "module",
   "devDependencies": {
     "jsdoc": "^4.0.2"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
   }
 }
