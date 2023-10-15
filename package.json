@@ -16,7 +16,8 @@
   "license": "GPL-3.0",
   "type": "module",
   "devDependencies": {
-    "jsdoc": "^4.0.2"
+    "jsdoc": "^4.0.2",
+    "mock-socket": "^9.3.1"
   },
   "dependencies": {
     "ws": "^8.14.2"
