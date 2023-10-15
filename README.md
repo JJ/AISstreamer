@@ -14,13 +14,18 @@ Documentation is hosted at [GitHub pages](https://jj.github.io/AISstreamer); reg
 
 ## Use
 
-There's a single function, `AIStrack`:
+Two exported functions, `AISTrackAll` and `AISTrack`, as well as a constant, `defaultBoundingBox`
 
 ```JS
-import { AIStrack } from "aisstreamer";
+import { AIStrack, AISTrackAll, defaultBoundingBox } from "aisstreamer";
 
 // API_KEY can be defined as an environment variable
 const API_KEY = process.env.AISSTREAM_API_KEY;
+
+// Execute the callback for every message related to vessels in the box
+AISTrackAll(API_KEY, 
+            defaultBoundingBox,
+            (msg) => console.log( msg["MessageType"]));
 
 // The exact ship name needs to be used; this might include the company name
 const SHIP_NAME = process.env.SHIP_NAME.toUpperCase();
@@ -31,7 +36,7 @@ AIStrack(API_KEY, SHIP_NAME);
 This will use the default callback, which simply prints the message in JSON
 format, every time it finds the ship. Please read the documentation if you want
 to change the tracked zone, as well as have a different callback called when the
-ship is found. Please check out the [reference](https://jj.github.io/AISstreamer/global.html#AIStrack) for a more extensive explanation.
+ship is found. Please check out the [reference](https://jj.github.io/AISstreamer/global.html#AIStrack) for a more extensive explanation, and the [`examples` directory](examples/) for a few scripts that use this.
 
 ## AISstream messages
 
