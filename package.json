@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "doc": "jsdoc -d docs --readme ./README.md lib/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "message-types": "cat tests/message_examples.json| jq 'keys[] as $k | \"\\($k), \\(.[$k] | .Message | .[$k] | .MessageID)\" '"
   },
   "keywords": [
     "AIS",
