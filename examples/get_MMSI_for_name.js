@@ -5,9 +5,17 @@ async function getMMSIsForShipName(shipName) {
     const response = await axios.get('https://www.itu.int/mmsapp/ShipStation/list');
     const $ = load(response.data);
 
+    // list all forms present in the page
+    const forms = $('form');
+    console.log(forms)
+
+    // select form with name="form-main"
+    const form = $('form[name="form-main"]');
+    console.log(form);
+
     // Submit the ship name
     $('input[name="shipName"]').val(shipName);
-    $('form').submit();
+    form.submit();
 
     const mmsis = [];
 
