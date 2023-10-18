@@ -5,8 +5,9 @@ on:
     branches: ["main"]
     paths:
       - lib/*.js
-      - test/*.js
+      - tests/*.js
       - README.md
+      - .github/workflows/test-and-gen-docs.yml
 
 permissions:
   contents: write
