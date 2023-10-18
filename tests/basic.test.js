@@ -40,4 +40,3 @@ describe("test server", () => {
     });
   });
 });
-//  AIStrackAll("API_KEY", defaultBoundingBox, callback, server);
