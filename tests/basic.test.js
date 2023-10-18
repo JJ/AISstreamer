@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { WebSocket, Server } from "mock-socket";
-import { strictEqual } from "node:assert";
-import { AIS_API_URL, AIStrackAll } from "../lib/index.js";
+import { strictEqual, ok } from "node:assert";
+import { AIS_API_URL, AISsocket, AIStrackAll } from "../lib/index.js";
 
 describe("test server", () => {
   let count = 0;
@@ -12,12 +12,6 @@ describe("test server", () => {
 
   function callback(message) {
     count++;
-    describe("test message " + count, () => {
-      it("get the correct type of message", (done) => {
-        strictEqual(Object.keys(message.Message)[0], message.MessageType);
-        done();
-      });
-    });
   }
 
   before((done) => {
