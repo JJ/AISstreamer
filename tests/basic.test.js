@@ -1,7 +1,12 @@
 import { readFileSync } from "fs";
 import { WebSocket, Server } from "mock-socket";
-import { strictEqual, ok } from "node:assert";
-import { AIS_API_URL, AISsocket, AIStrackAll } from "../lib/index.js";
+import { strictEqual } from "node:assert";
+import {
+  AIS_API_URL,
+  globals,
+  AIStrackAll,
+  defaultBoundingBox,
+} from "../lib/index.js";
 
 describe("test server", () => {
   let count = 0;
@@ -10,7 +15,7 @@ describe("test server", () => {
   const server = new Server(AIS_API_URL);
   const socket = new WebSocket(AIS_API_URL);
 
-  function callback(message) {
+  function callback() {
     count++;
   }
 
@@ -25,13 +30,8 @@ describe("test server", () => {
       done();
     });
 
-    socket.addEventListener("error", (event) => {
-      console.error(event);
-    });
-    socket.addEventListener("message", (event) => {
-      const aisMessage = JSON.parse(event.data);
-      callback(aisMessage);
-    });
+    globals.AISsocket = socket;
+    AIStrackAll("API_KEY", defaultBoundingBox, callback);
   });
 
   describe("Now test", () => {
