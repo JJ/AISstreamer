@@ -1,4 +1,4 @@
-# AISstreamer
+# AISstreamer [![Test and generate docs](https://github.com/JJ/AISstreamer/actions/workflows/test-and-gen-docs.yml/badge.svg)](https://github.com/JJ/AISstreamer/actions/workflows/test-and-gen-docs.yml)
 
 Client for AISstream socket API. It uses [AISstream free (and experimental)
 API](https://aisstream.io/) to track specific, single, ships (in the first
@@ -23,7 +23,7 @@ import { AIStrack, AISTrackAll, defaultBoundingBox } from "aisstreamer";
 const API_KEY = process.env.AISSTREAM_API_KEY;
 
 // Execute the callback for every message related to vessels in the box
-AISTrackAll(API_KEY, 
+AISTrackAll(API_KEY,
             defaultBoundingBox,
             (msg) => console.log( msg["MessageType"]));
 
