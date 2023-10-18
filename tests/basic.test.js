@@ -23,7 +23,6 @@ describe("test server", () => {
     messageExamples = JSON.parse(readFileSync("tests/message_examples.json"));
 
     server.on("connection", (socket) => {
-      console.log("connected " + socket.url);
       for (const message of Object.keys(messageExamples)) {
         socket.send(JSON.stringify(messageExamples[message]));
       }
