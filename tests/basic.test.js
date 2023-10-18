@@ -29,7 +29,6 @@ describe("test server", () => {
     });
 
     globals.AISsocket = new WebSocket(AIS_API_URL);
-    console.warn(server);
     AIStrackAll("API_KEY", defaultBoundingBox, callback);
   });
 
