@@ -13,7 +13,6 @@ describe("test server", () => {
   let messageExamples;
 
   const server = new Server(AIS_API_URL);
-  const socket = new WebSocket(AIS_API_URL);
 
   function callback() {
     count++;
@@ -29,7 +28,9 @@ describe("test server", () => {
       done();
     });
 
-    globals.AISsocket = socket;
+    globals.AISsocket = new WebSocket(AIS_API_URL);
+    console.warn("globals.AISsocket", globals.AISsocket);
+    console.warn(server);
     AIStrackAll("API_KEY", defaultBoundingBox, callback);
   });
 
