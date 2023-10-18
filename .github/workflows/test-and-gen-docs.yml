@@ -1,13 +1,12 @@
-name: Generate docs
+name: Test and generate docs
 
 on:
   push:
     branches: ["main"]
     paths:
       - lib/*.js
+      - test/*.js
       - README.md
-
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,6 +27,8 @@ jobs:
           fetch-depth: 0
       - name: Install
         run: npm ci
+      - name: Test
+        run: npm test
       - name: Generate docs
         run: npm run doc
       - name: Commit and push
