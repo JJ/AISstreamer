@@ -1,38 +1,36 @@
 import { readFileSync } from "fs";
 import { WebSocket, Server } from "mock-socket";
-import { AIS_API_URL } from "../lib/test-mock.js";
+import { strictEqual } from "node:assert";
+import { AIS_API_URL, AIStrackAll } from "../lib/index.js";
 
-  const server new Server(AIS_API_URL);
-
+describe("test server", () => {
   let count = 0;
+  let messageExamples;
+
+  const server = new Server(AIS_API_URL);
+  const socket = new WebSocket(AIS_API_URL);
+
   function callback(message) {
     count++;
-    if (count === 5) {
-      socket.close();
-    }
-    console.log(message, count);
+    describe("test message " + count, () => {
+      it("get the correct type of message", (done) => {
+        strictEqual(Object.keys(message.Message)[0], message.MessageType);
+        done();
+      });
+    });
   }
 
-
-    const messageExamples = JSON.parse(
-      readFileSync("message_examples.json")
-    );
+  before((done) => {
+    messageExamples = JSON.parse(readFileSync("tests/message_examples.json"));
 
     server.on("connection", (socket) => {
-      const messageType = Object.keys(messageExamples);
-      const message =
-        messageExamples[messageType[(messageType.length * Math.random()) << 0]];
-      socket.send(JSON.stringify(message));
+      console.log("connected " + socket.url);
+      for (const message of Object.keys(messageExamples)) {
+        socket.send(JSON.stringify(messageExamples[message]));
+      }
+      done();
     });
 
-    const socket = new WebSocket(AIS_API_URL);
-    socket.addEventListener("open", (_) => {
-      const subscriptionMessage = {
-        APIkey: "API_KEY",
-        BoundingBoxes: defaultBoundingBox,
-      };
-      socket.send(JSON.stringify(subscriptionMessage));
-    });
     socket.addEventListener("error", (event) => {
       console.error(event);
     });
@@ -40,13 +38,13 @@ import { AIS_API_URL } from "../lib/test-mock.js";
       const aisMessage = JSON.parse(event.data);
       callback(aisMessage);
     });
-    socket.addEventListener("close", () => {
-      it("should have sent 5 messages", (done) => {
-        strictEqual(count, 5);
-        done();
-      });
-    });
   });
 
-  //  AIStrackAll("API_KEY", defaultBoundingBox, callback, server);
+  describe("Now test", () => {
+    it("test AIStrackAll", (done) => {
+      strictEqual(count, Object.keys(messageExamples).length);
+      done();
+    });
+  });
 });
+//  AIStrackAll("API_KEY", defaultBoundingBox, callback, server);
