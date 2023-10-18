@@ -1,11 +1,8 @@
 import { readFileSync } from "fs";
 import { WebSocket, Server } from "mock-socket";
-// import { AIS_API_URL, AIStrackAll, defaultBoundingBox } from "../lib/index.js";
-// import { strictEqual } from "node:assert";
+import { AIS_API_URL } from "../lib/test-mock.js";
 
-describe("socket mock test", () => {
-  let server;
-  let socket;
+  const server new Server(AIS_API_URL);
 
   let count = 0;
   function callback(message) {
@@ -16,10 +13,9 @@ describe("socket mock test", () => {
     console.log(message, count);
   }
 
-  before(() => {
-    server = new Server(AIS_API_URL);
+
     const messageExamples = JSON.parse(
-      readFileSync("tests/message_examples.json")
+      readFileSync("message_examples.json")
     );
 
     server.on("connection", (socket) => {
@@ -29,7 +25,7 @@ describe("socket mock test", () => {
       socket.send(JSON.stringify(message));
     });
 
-    socket = new WebSocket(AIS_API_URL);
+    const socket = new WebSocket(AIS_API_URL);
     socket.addEventListener("open", (_) => {
       const subscriptionMessage = {
         APIkey: "API_KEY",
