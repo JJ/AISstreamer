@@ -84,6 +84,7 @@ remain invariable, and it contains the name of the ship as well as the
 ## Versions
 
 * `0.0.1` Initial version.
+* `0.0.2` Refactoring with several functions, mainly a general `AISTrackAll` that does not focus on a single ship. Bugs eliminated.
 
 ## LICENSE
 
